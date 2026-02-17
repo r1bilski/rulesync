@@ -3,6 +3,12 @@ import { AiFileFromFileParams, AiFileParams } from "../../types/ai-file.js";
 import { ToolFile } from "../../types/tool-file.js";
 import { RulesyncPermissions } from "./rulesync-permissions.js";
 
+export type ToolPermissionsFromRulesyncHooksParams = Omit<
+  AiFileParams,
+  "fileContent" | "relativeFilePath" | "relativeDirPath"
+> & {
+  rulesyncPermissions: RulesyncPermissions;
+};
 export type ToolPermissionsParams = AiFileParams;
 export type ToolPermissionsFromFileParams = Pick<
   AiFileFromFileParams,

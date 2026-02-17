@@ -39,6 +39,7 @@ export const PermissionsConfigSchema = z.looseObject({
   permissions: permissionsRecordSchema,
 
   // @TODO(rb): Tool specific overrides go here.
+  opencode: z.optional(z.looseObject({ permissions: z.optional(permissionsRecordSchema) })),
 });
 
 export type PermissionsConfig = z.infer<typeof PermissionsConfigSchema>;
